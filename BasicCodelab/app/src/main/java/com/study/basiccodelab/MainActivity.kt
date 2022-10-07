@@ -10,6 +10,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.*
 import androidx.compose.ui.*
+import androidx.compose.ui.text.font.*
 import androidx.compose.ui.tooling.preview.*
 import androidx.compose.ui.unit.*
 import com.study.basiccodelab.ui.theme.*
@@ -68,7 +69,10 @@ private fun Greeting(name: String) {
                     .padding(bottom = extraPadding)
             ) {
                 Text(text = "Hello, ")
-                Text(text = name, style = MaterialTheme.typography.h4)
+                Text(
+                    text = name,
+                    style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.ExtraBold)
+                )
             }
             OutlinedButton(
                 onClick = { expanded = !expanded }
