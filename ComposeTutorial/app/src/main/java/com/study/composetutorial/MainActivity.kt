@@ -6,8 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -38,6 +40,7 @@ fun MessageCard(msg: Message) {
                 .size(40.dp)
                 .clip(CircleShape)
         )
+        Spacer(modifier = Modifier.width(8.dp))
         Column {
             Text(text = msg.author)
             Text(text = msg.body)
