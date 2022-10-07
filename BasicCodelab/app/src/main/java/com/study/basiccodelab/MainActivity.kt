@@ -1,18 +1,15 @@
 package com.study.basiccodelab
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.study.basiccodelab.ui.theme.BasicCodelabTheme
+import android.os.*
+import androidx.activity.*
+import androidx.activity.compose.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.*
+import androidx.compose.ui.tooling.preview.*
+import androidx.compose.ui.unit.*
+import com.study.basiccodelab.ui.theme.*
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,9 +35,16 @@ private fun MyApp(names: List<String> = listOf("World", "Compose")) {
 
 @Composable
 private fun Greeting(name: String) {
-    Surface(color = MaterialTheme.colors.primary) {
-        Column(modifier = Modifier.padding(24.dp)) {
-            Text(text = "Hello,")
+    Surface(
+        color = MaterialTheme.colors.primary,
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(24.dp)
+        ) {
+            Text(text = "Hello, ")
             Text(text = name)
         }
     }
