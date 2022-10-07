@@ -60,10 +60,32 @@ private fun Greeting(name: String) {
     }
 }
 
+@Composable
+fun OnboardingScreen() {
+    // TODO: This state should be hoisted
+    var shouldShowOnboarding by remember { mutableStateOf(true) }
+
+    Surface {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text("Welcome to the Basics Codelab!")
+            Button(
+                modifier = Modifier.padding(vertical = 24.dp),
+                onClick = { shouldShowOnboarding = false }
+            ) {
+                Text("Continue")
+            }
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
     BasicCodelabTheme {
-        MyApp()
+        OnboardingScreen()
     }
 }
