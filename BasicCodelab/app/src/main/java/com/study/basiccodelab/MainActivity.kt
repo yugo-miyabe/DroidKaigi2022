@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.*
 import androidx.compose.ui.*
 import androidx.compose.ui.tooling.preview.*
 import androidx.compose.ui.unit.*
@@ -25,8 +26,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-
-    var shouldShowOnboarding by remember { mutableStateOf(true) }
+    // rememberSaveableを指定すると構成の変更（回転など）やプロセスの終了後も保持されます。
+    var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
 
     if (shouldShowOnboarding) {
         OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
