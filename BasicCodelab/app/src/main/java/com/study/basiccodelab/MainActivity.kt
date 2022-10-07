@@ -39,13 +39,16 @@ private fun Greeting(name: String) {
         color = MaterialTheme.colors.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(24.dp)
-        ) {
-            Text(text = "Hello, ")
-            Text(text = name)
+        Row(modifier = Modifier.padding(24.dp)) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(text = "Hello, ")
+                Text(text = name)
+            }
+            OutlinedButton(
+                onClick = { /* TODO */ }
+            ) {
+                Text("Show more")
+            }
         }
     }
 }
