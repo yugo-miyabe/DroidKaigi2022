@@ -28,10 +28,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp() {
     // rememberSaveableを指定すると構成の変更（回転など）やプロセスの終了後も保持されます。
-    var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
+    var shouldShowOnBoarding by rememberSaveable { mutableStateOf(true) }
 
-    if (shouldShowOnboarding) {
-        OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
+    if (shouldShowOnBoarding) {
+        OnboardingScreen(onContinueClicked = { shouldShowOnBoarding = false })
     } else {
         Greetings()
     }
