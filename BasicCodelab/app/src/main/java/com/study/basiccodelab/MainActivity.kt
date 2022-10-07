@@ -35,6 +35,8 @@ private fun MyApp(names: List<String> = listOf("World", "Compose")) {
 
 @Composable
 private fun Greeting(name: String) {
+    // rememberで可変状態を「記憶」する
+    val expanded = remember { mutableStateOf(false) }
     Surface(
         color = MaterialTheme.colors.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
