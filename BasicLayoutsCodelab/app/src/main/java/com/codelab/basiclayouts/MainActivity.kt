@@ -73,6 +73,7 @@ fun AlignYourBodyElement(
 ) {
     Column(modifier = modifier) {
         Image(painter = painterResource(id = R.drawable.ab1_inversions), contentDescription = null)
+        Text(text = stringResource(id = R.string.ab1_inversions))
     }
 }
 
