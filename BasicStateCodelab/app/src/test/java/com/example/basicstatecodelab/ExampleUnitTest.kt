@@ -1,4 +1,4 @@
-package com.study.basicstatecodelab
+package com.example.basicstatecodelab
 
 import org.junit.Test
 
