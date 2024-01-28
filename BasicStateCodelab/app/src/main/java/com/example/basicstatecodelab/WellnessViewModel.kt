@@ -1,5 +1,6 @@
 package com.example.basicstatecodelab
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.toMutableStateList
 import androidx.lifecycle.ViewModel
 
@@ -18,4 +19,3 @@ class WellnessViewModel : ViewModel() {
 }
 
 private fun getWellnessTasks() = List(30) { i -> WellnessTask(i, "Task # $i") }
-data class WellnessTask(val id: Int, val label: String, var checked: Boolean = false)
