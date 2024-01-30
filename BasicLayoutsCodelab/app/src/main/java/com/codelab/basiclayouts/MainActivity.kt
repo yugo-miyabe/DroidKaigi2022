@@ -43,9 +43,13 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Spa
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -115,9 +119,7 @@ fun AlignYourBodyElement(
 // Step: Favorite collection card - Material Surface
 @Composable
 fun FavoriteCollectionCard(
-    @DrawableRes drawable: Int,
-    @StringRes text: Int,
-    modifier: Modifier = Modifier
+    @DrawableRes drawable: Int, @StringRes text: Int, modifier: Modifier = Modifier
 ) {
     Surface(
         shape = MaterialTheme.shapes.medium,
@@ -125,8 +127,7 @@ fun FavoriteCollectionCard(
         modifier = modifier
     ) {
         Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.width(255.dp)
+            verticalAlignment = Alignment.CenterVertically, modifier = Modifier.width(255.dp)
         ) {
             Image(
                 painter = painterResource(drawable),
@@ -149,8 +150,7 @@ fun AlignYourBodyRow(
     modifier: Modifier = Modifier
 ) {
     LazyRow(
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        modifier = modifier
+        horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = modifier
     ) {
         items(alignYourBodyData) { item ->
             AlignYourBodyElement(item.drawable, item.text)
@@ -179,9 +179,7 @@ fun FavoriteCollectionsGrid(
 // Step: Home section - Slot APIs
 @Composable
 fun HomeSection(
-    @StringRes tile: Int,
-    modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    @StringRes tile: Int, modifier: Modifier = Modifier, content: @Composable () -> Unit
 ) {
     Column(modifier) {
         Text(
@@ -214,7 +212,37 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 // Step: Bottom navigation - Material
 @Composable
 private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
-    // Implement composable here
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+        modifier = modifier
+    ) {
+        NavigationBarItem(
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.Spa,
+                    contentDescription = null
+                )
+            },
+            label = {
+                Text(text = stringResource(id = R.string.bottom_navigation_home))
+            },
+            selected = true,
+            onClick = { },
+        )
+        NavigationBarItem(
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.AccountCircle,
+                    contentDescription = null
+                )
+            },
+            label = {
+                Text(text = stringResource(id = R.string.bottom_navigation_profile))
+            },
+            selected = false,
+            onClick = { },
+        )
+    }
 }
 
 // Step: MySoothe App - Scaffold
@@ -315,7 +343,7 @@ fun HomeSectionPreview() {
     }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFFF5F0EE, heightDp = 180)
+@Preview(showBackground = true, backgroundColor = 0xFFF5F0EE)
 @Composable
 fun ScreenContentPreview() {
     MySootheTheme { HomeScreen() }
