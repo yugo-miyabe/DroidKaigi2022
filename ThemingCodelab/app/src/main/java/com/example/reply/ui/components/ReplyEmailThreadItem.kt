@@ -27,7 +27,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.StarBorder
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -49,8 +48,11 @@ fun ReplyEmailThreadItem(
         modifier = modifier
             .fillMaxWidth()
             .padding(16.dp)
-            .background(MaterialTheme.colorScheme.background)
-            .padding(20.dp)
+            .background(
+                MaterialTheme.colorScheme.background,
+                MaterialTheme.shapes.medium
+            )
+            .padding(16.dp)
     ) {
         Row(modifier = Modifier.fillMaxWidth()) {
             ReplyProfileImage(

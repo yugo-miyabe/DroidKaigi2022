@@ -95,6 +95,7 @@ fun AppTheme(
                 dynamicLightColorScheme(context)
             }
         }
+
         useDarkTheme -> DarkColors
         else -> LightColors
     }
@@ -114,6 +115,7 @@ fun AppTheme(
     MaterialTheme(
         colorScheme = colors,
         typography = typography,
+        shapes = shapes,
         content = content
     )
 }
