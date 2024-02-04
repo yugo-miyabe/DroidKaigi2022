@@ -23,6 +23,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -38,12 +41,18 @@ class MainViewModel @Inject constructor(
 
     val hotels: List<ExploreModel> = destinationsRepository.hotels
     val restaurants: List<ExploreModel> = destinationsRepository.restaurants
+    private val _suggestedDestinations = MutableStateFlow<List<ExploreModel>>(emptyList())
+    val suggestedDestinations: StateFlow<List<ExploreModel>> = _suggestedDestinations.asStateFlow()
+
+    init {
+        _suggestedDestinations.value = destinationsRepository.destinations
+    }
 
     fun updatePeople(people: Int) {
         viewModelScope.launch {
             if (people > MAX_PEOPLE) {
-            // TODO Codelab: Uncomment
-            //  _suggestedDestinations.value = emptyList()
+                // TODO Codelab: Uncomment
+                //  _suggestedDestinations.value = emptyList()
             } else {
                 val newDestinations = withContext(defaultDispatcher) {
                     destinationsRepository.destinations
