@@ -27,6 +27,9 @@ private const val DEFAULT_IMAGE_WIDTH = "250"
 @Singleton
 class DestinationsLocalDataSource @Inject constructor() {
 
+    /**
+     * レストランのリスト
+     */
     val craneRestaurants = listOf(
         ExploreModel(
             city = NAPLES,
@@ -65,6 +68,9 @@ class DestinationsLocalDataSource @Inject constructor() {
         )
     )
 
+    /**
+     * ホテルリスト
+     */
     val craneHotels = listOf(
         ExploreModel(
             city = MALDIVAS,
@@ -103,6 +109,9 @@ class DestinationsLocalDataSource @Inject constructor() {
         )
     )
 
+    /**
+     * 目的地リスト
+     */
     val craneDestinations = listOf(
         ExploreModel(
             city = KHUMBUVALLEY,

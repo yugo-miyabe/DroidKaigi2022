@@ -25,6 +25,9 @@ class DestinationsRepository @Inject constructor(
     val hotels: List<ExploreModel> = destinationsLocalDataSource.craneHotels
     val restaurants: List<ExploreModel> = destinationsLocalDataSource.craneRestaurants
 
+    /**
+     * 都市名を指定して目的地を取得する
+     */
     fun getDestination(cityName: String): ExploreModel? {
         return destinationsLocalDataSource.craneDestinations.firstOrNull {
             it.city.name == cityName
