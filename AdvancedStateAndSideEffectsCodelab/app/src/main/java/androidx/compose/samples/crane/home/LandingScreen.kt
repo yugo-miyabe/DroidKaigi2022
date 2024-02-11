@@ -20,18 +20,29 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.samples.crane.R
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import kotlinx.coroutines.delay
 
-private const val SplashWaitTime: Long = 2000
+private const val SPLASH_WAIT_TIME: Long = 2000
 
 @Composable
 fun LandingScreen(onTimeout: () -> Unit, modifier: Modifier = Modifier) {
     Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        // TODO Codelab: LaunchedEffect and rememberUpdatedState step
-        // TODO: Make LandingScreen disappear after loading data
+        // 常に最新の onTimeout 関数を参照する
+        val currentOnTimeout by rememberUpdatedState(onTimeout)
+
+        // コンポジションに入る時に実行される
+        LaunchedEffect(key1 = onTimeout, block = {
+            // 2秒間 遅延
+            delay(SPLASH_WAIT_TIME)
+            currentOnTimeout()
+        })
         Image(painterResource(id = R.drawable.ic_crane_drawer), contentDescription = null)
     }
 }

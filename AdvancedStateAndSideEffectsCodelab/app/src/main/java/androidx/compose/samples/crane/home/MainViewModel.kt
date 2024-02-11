@@ -41,6 +41,7 @@ class MainViewModel @Inject constructor(
 
     val hotels: List<ExploreModel> = destinationsRepository.hotels
     val restaurants: List<ExploreModel> = destinationsRepository.restaurants
+
     private val _suggestedDestinations = MutableStateFlow<List<ExploreModel>>(emptyList())
     val suggestedDestinations: StateFlow<List<ExploreModel>> = _suggestedDestinations.asStateFlow()
 

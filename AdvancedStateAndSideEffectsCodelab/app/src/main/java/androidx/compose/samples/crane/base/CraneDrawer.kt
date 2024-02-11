@@ -35,6 +35,9 @@ import androidx.compose.ui.unit.dp
 
 private val screens = listOf("Find Trips", "My Trips", "Saved Trips", "Price Alerts", "My Account")
 
+/**
+ * Drawerを生成
+ */
 @Composable
 fun CraneDrawer(modifier: Modifier = Modifier) {
     Column(
@@ -53,7 +56,7 @@ fun CraneDrawer(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun CraneDrawerPreview() {
     CraneTheme {

@@ -39,6 +39,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // コンポーズ可能な関数を呼び出す
         setContent {
             val uiState by viewModel.uiState.collectAsState()
             AppTheme {
