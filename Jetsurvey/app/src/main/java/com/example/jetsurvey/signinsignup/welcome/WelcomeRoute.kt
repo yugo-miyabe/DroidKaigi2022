@@ -5,5 +5,8 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun WelcomeRoute() {
-
+    WelcomeScreen(
+        onSignInSignUp = {},
+        onSignInAsGuest = {},
+    )
 }

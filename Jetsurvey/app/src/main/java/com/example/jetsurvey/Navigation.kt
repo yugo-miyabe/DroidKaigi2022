@@ -10,6 +10,7 @@ import com.example.jetsurvey.Destinations.SIGN_UP_ROUTE
 import com.example.jetsurvey.Destinations.SURVEY_RESULTS_ROUTE
 import com.example.jetsurvey.Destinations.SURVEY_ROUTE
 import com.example.jetsurvey.Destinations.WELCOME_ROUTE
+import com.example.jetsurvey.signinsignup.welcome.WelcomeRoute
 
 /**
  * Navigationリスト
@@ -34,7 +35,7 @@ fun JetsurveyNavHost(
         startDestination = WELCOME_ROUTE
     ) {
         composable(WELCOME_ROUTE) {
-            // TODO
+            WelcomeRoute()
         }
         composable(SIGN_IN_ROUTE) {
             // TODO
