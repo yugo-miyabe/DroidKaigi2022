@@ -23,13 +23,13 @@ open class TextFieldState(
     }
 
     fun enableShowErrors() {
-        // only show errors if the text was at least once focused
+        // 一度でもフォーカスされていたら、エラーを出す
         if (isFocusedDirty) {
             displayErrors = true
         }
     }
 
-    fun showErrors() = !isValid && displayErrors
+    fun showErrors() = isValid.not() && displayErrors
 
     open fun getError(): String? {
         return if (showErrors()) {
@@ -40,8 +40,16 @@ open class TextFieldState(
     }
 }
 
+/**
+ * テキストの状態を保存、復元する役割
+ */
 fun textFieldStateSaver(state: TextFieldState) = listSaver<TextFieldState, Any>(
-    save = { listOf(it.text, it.isFocusedDirty) },
+    save = { textFieldState ->
+        listOf(
+            textFieldState.text,
+            textFieldState.isFocusedDirty
+        )
+    },
     restore = {
         state.apply {
             text = it[0] as String

@@ -30,7 +30,7 @@ fun OrSignInAsGuest(
             style = MaterialTheme.typography.titleSmall,
         )
         OutlinedButton(
-            onClick = { /*TODO*/ },
+            onClick = { onSignInAsGuest },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 20.dp, bottom = 24.dp)

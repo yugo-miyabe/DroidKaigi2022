@@ -111,6 +111,9 @@ private fun SignInCreateAccount(
     onFocusChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    /**
+     * Email関連の状態を保持
+     */
     val emailState by rememberSaveable(stateSaver = EmailStateSaver) {
         mutableStateOf(EmailState())
     }
