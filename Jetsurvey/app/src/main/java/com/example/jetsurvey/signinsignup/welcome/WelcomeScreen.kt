@@ -1,6 +1,5 @@
 package com.example.jetsurvey.signinsignup.welcome
 
-import android.content.res.Configuration
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -26,14 +25,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetsurvey.R
 import com.example.jetsurvey.signinsignup.common.email.Email
 import com.example.jetsurvey.signinsignup.common.email.EmailState
 import com.example.jetsurvey.signinsignup.common.email.EmailStateSaver
 import com.example.jetsurvey.signinsignup.common.orSignInAsGuest.OrSignInAsGuest
-import com.example.jetsurvey.ui.theme.JetsurveyTheme
 import com.example.jetsurvey.ui.theme.stronglyDeemphasizedAlpha
 import com.example.jetsurvey.util.supportWideScreen
 
@@ -148,14 +145,5 @@ private fun SignInCreateAccount(
             onSignInAsGuest = onSignInAsGuest,
             modifier = Modifier.fillMaxWidth()
         )
-    }
-}
-
-@Preview(name = "Welcome light theme", uiMode = Configuration.UI_MODE_NIGHT_YES)
-@Preview(name = "Welcome dark theme", uiMode = Configuration.UI_MODE_NIGHT_NO)
-@Composable
-fun WelcomeScreenPreview() {
-    JetsurveyTheme {
-        WelcomeScreen(onSignInSignUp = {}, onSignInAsGuest = {})
     }
 }

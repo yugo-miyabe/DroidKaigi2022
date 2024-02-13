@@ -35,7 +35,17 @@ fun JetsurveyNavHost(
         startDestination = WELCOME_ROUTE
     ) {
         composable(WELCOME_ROUTE) {
-            WelcomeRoute()
+            WelcomeRoute(
+                onNavigateToSignIn = {
+                    navController.navigate("signin/$it")
+                },
+                onNavigateToSignUp = {
+                    navController.navigate("signup/$it")
+                },
+                onSignInAsGuest = {
+                    navController.navigate(SURVEY_ROUTE)
+                },
+            )
         }
         composable(SIGN_IN_ROUTE) {
             // TODO
