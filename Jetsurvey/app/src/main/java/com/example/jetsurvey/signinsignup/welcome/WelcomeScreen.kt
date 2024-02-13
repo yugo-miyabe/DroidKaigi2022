@@ -32,6 +32,7 @@ import com.example.jetsurvey.R
 import com.example.jetsurvey.signinsignup.common.email.Email
 import com.example.jetsurvey.signinsignup.common.email.EmailState
 import com.example.jetsurvey.signinsignup.common.email.EmailStateSaver
+import com.example.jetsurvey.signinsignup.common.orSignInAsGuest.OrSignInAsGuest
 import com.example.jetsurvey.ui.theme.JetsurveyTheme
 import com.example.jetsurvey.ui.theme.stronglyDeemphasizedAlpha
 import com.example.jetsurvey.util.supportWideScreen
@@ -143,6 +144,10 @@ private fun SignInCreateAccount(
                 style = MaterialTheme.typography.titleSmall
             )
         }
+        OrSignInAsGuest(
+            onSignInAsGuest = onSignInAsGuest,
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
 
