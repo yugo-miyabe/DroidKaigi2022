@@ -10,6 +10,7 @@ import com.example.jetsurvey.Destinations.SIGN_UP_ROUTE
 import com.example.jetsurvey.Destinations.SURVEY_RESULTS_ROUTE
 import com.example.jetsurvey.Destinations.SURVEY_ROUTE
 import com.example.jetsurvey.Destinations.WELCOME_ROUTE
+import com.example.jetsurvey.signinsignup.signin.SignInRoute
 import com.example.jetsurvey.signinsignup.welcome.WelcomeRoute
 
 /**
@@ -36,11 +37,11 @@ fun JetsurveyNavHost(
     ) {
         composable(WELCOME_ROUTE) {
             WelcomeRoute(
-                onNavigateToSignIn = {
-                    navController.navigate("signin/$it")
+                onNavigateToSignIn = { email ->
+                    navController.navigate("signin/$email")
                 },
-                onNavigateToSignUp = {
-                    navController.navigate("signup/$it")
+                onNavigateToSignUp = { email ->
+                    navController.navigate("signup/$email")
                 },
                 onSignInAsGuest = {
                     navController.navigate(SURVEY_ROUTE)
@@ -48,7 +49,18 @@ fun JetsurveyNavHost(
             )
         }
         composable(SIGN_IN_ROUTE) {
-            // TODO
+            // 引数を受け取り
+            val startingEmail = it.arguments?.getString("email")
+            SignInRoute(
+                email = startingEmail,
+                onSignInSubmitted = {
+                    navController.navigate(SURVEY_ROUTE)
+                },
+                onSignInAsGuest = {
+                    navController.navigate(SURVEY_ROUTE)
+                },
+                onNavUp = navController::navigateUp,
+            )
         }
 
         composable(SIGN_UP_ROUTE) {

@@ -27,13 +27,4 @@ fun WelcomeRoute(
     )
 }
 
-@Preview
-@Composable
-private fun WelcomeRoutePreview() {
-    WelcomeRoute(
-        onNavigateToSignIn = { "" },
-        onNavigateToSignUp = { "" },
-        onSignInAsGuest = { "" },
-    )
-}
 
