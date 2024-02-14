@@ -41,6 +41,7 @@ fun WelcomeScreen(
     onSignInSignUp: (email: String) -> Unit,
     onSignInAsGuest: () -> Unit,
 ) {
+    // フォーカスが当たると消す
     var showBranding by rememberSaveable { mutableStateOf(true) }
 
     Scaffold(modifier = Modifier.supportWideScreen()) { innerPadding ->
@@ -100,7 +101,9 @@ private fun Logo(
         R.drawable.ic_logo_dark
     }
     Image(
-        painter = painterResource(id = assetId), modifier = modifier, contentDescription = null
+        painter = painterResource(id = assetId),
+        modifier = modifier,
+        contentDescription = null
     )
 }
 
