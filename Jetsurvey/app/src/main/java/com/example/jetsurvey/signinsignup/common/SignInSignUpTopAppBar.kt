@@ -25,7 +25,8 @@ import com.example.jetsurvey.ui.theme.JetsurveyTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignInSignUpTopAppBar(
-    topAppBarText: String, onNavUp: () -> Unit
+    topAppBarText: String,
+    onNavUp: () -> Unit
 ) {
     CenterAlignedTopAppBar(title = {
         Text(
@@ -34,15 +35,16 @@ fun SignInSignUpTopAppBar(
                 .fillMaxSize()
                 .wrapContentSize(Alignment.Center)
         )
-    }, navigationIcon = {
-        IconButton(onClick = onNavUp) {
-            Icon(
-                imageVector = Icons.Filled.ChevronLeft,
-                contentDescription = stringResource(id = R.string.back),
-                tint = MaterialTheme.colorScheme.primary
-            )
-        }
     },
+        navigationIcon = {
+            IconButton(onClick = onNavUp) {
+                Icon(
+                    imageVector = Icons.Filled.ChevronLeft,
+                    contentDescription = stringResource(id = R.string.back),
+                    tint = MaterialTheme.colorScheme.primary
+                )
+            }
+        },
         actions = {
             Spacer(modifier = Modifier.width(68.dp))
         }
