@@ -60,7 +60,7 @@ fun WelcomeScreen(
             SignInCreateAccount(
                 onSignInSignUp = onSignInSignUp,
                 onSignInAsGuest = onSignInAsGuest,
-                onFocusChange = { focused -> showBranding = !focused },
+                onFocusChange = { focused -> showBranding = focused.not() },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp)
@@ -136,9 +136,13 @@ private fun SignInCreateAccount(
             }
         }
         onFocusChange(emailState.isFocused)
-        Email(emailState = emailState, imeAction = ImeAction.Done, onImeAction = onSubmit)
+        Email(
+            emailState = emailState,
+            imeAction = ImeAction.Done,
+            onImeAction = onSubmit
+        )
         Button(
-            onClick = { onSubmit },
+            onClick = onSubmit,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 28.dp, bottom = 3.dp)
