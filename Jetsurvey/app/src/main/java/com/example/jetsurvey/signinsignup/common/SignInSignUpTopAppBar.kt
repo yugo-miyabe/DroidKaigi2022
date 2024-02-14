@@ -1,7 +1,9 @@
 package com.example.jetsurvey.signinsignup.common
 
 import android.content.res.Configuration
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ChevronLeft
@@ -16,32 +18,33 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.jetsurvey.R
 import com.example.jetsurvey.ui.theme.JetsurveyTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignInSignUpTopAppBar(
-    topAppBarText: String,
-    onNavUp: () -> Unit
+    topAppBarText: String, onNavUp: () -> Unit
 ) {
-    CenterAlignedTopAppBar(
-        title = {
-            Text(
-                text = topAppBarText,
-                modifier = Modifier
-                    .fillMaxSize()
-                    .wrapContentSize(Alignment.Center)
+    CenterAlignedTopAppBar(title = {
+        Text(
+            text = topAppBarText,
+            modifier = Modifier
+                .fillMaxSize()
+                .wrapContentSize(Alignment.Center)
+        )
+    }, navigationIcon = {
+        IconButton(onClick = onNavUp) {
+            Icon(
+                imageVector = Icons.Filled.ChevronLeft,
+                contentDescription = stringResource(id = R.string.back),
+                tint = MaterialTheme.colorScheme.primary
             )
-        },
-        navigationIcon = {
-            IconButton(onClick = { onNavUp }) {
-                Icon(
-                    imageVector = Icons.Filled.ChevronLeft,
-                    contentDescription = stringResource(id = R.string.back),
-                    tint = MaterialTheme.colorScheme.primary
-                )
-            }
+        }
+    },
+        actions = {
+            Spacer(modifier = Modifier.width(68.dp))
         }
     )
 }
@@ -52,9 +55,6 @@ fun SignInSignUpTopAppBar(
 @Composable
 fun SignInPreview() {
     JetsurveyTheme {
-        SignInSignUpTopAppBar(
-            topAppBarText = stringResource(id = R.string.sign_in),
-            onNavUp = {}
-        )
+        SignInSignUpTopAppBar(topAppBarText = stringResource(id = R.string.sign_in), onNavUp = {})
     }
 }
