@@ -1,0 +1,80 @@
+{
+  "name": "emoji_field",
+  "version": 33,
+  "source-key": {
+    "type": "figma",
+    "file": "DIf78u3Gok9mzsaZFEWuJO",
+    "node": "142:17888",
+    "version": "5176341799",
+    "component-id": "27960a5794567471bca4e3f5a00cfba095b0d726"
+  },
+  "default": "Emoji Field",
+  "design": {
+    "atoms": [
+      {
+        "type": "group",
+        "id": "top_level",
+        "root": "true"
+      },
+      {
+        "type": "text",
+        "id": "emoji"
+      }
+    ],
+    "modes": {
+      "Emoji Field": {
+        "rules": [
+          {
+            "id": "top_level",
+            "border-radius": 24.0,
+            "arrangement": "row",
+            "children": [
+              "emoji"
+            ],
+            "background-color": {
+              "alpha": 1.0,
+              "hue": 32.727272727272755,
+              "saturation": 0.09482758620689659,
+              "value": 0.9098039215686274
+            },
+            "clip-content": false
+          },
+          {
+            "id": "emoji",
+            "color": {
+              "alpha": 1.0,
+              "hue": 0.0,
+              "saturation": 0.0,
+              "value": 1.0
+            },
+            "text-content": "$emoji",
+            "overflow": "visible",
+            "text-size": 48.0
+          }
+        ]
+      }
+    }
+  },
+  "parameters": {
+    "emoji": {
+      "data-type": "text",
+      "required": false,
+      "description": ""
+    }
+  },
+  "previews": [
+    {
+      "design": "Emoji Field",
+      "size": {
+        "width": 96.0,
+        "height": 116.0
+      },
+      "parameters": {
+        "emoji": "😊"
+      }
+    }
+  ],
+  "adin-component-search-paths": [],
+  "image-search-paths": [],
+  "vector-search-paths": []
+}
